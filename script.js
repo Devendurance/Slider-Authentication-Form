@@ -69,23 +69,44 @@ signUpButton.addEventListener('click', (e) => {
 
 
 
+
 loginButton.addEventListener('click', (e) => {
-    e.preventDefault();
     
     //get values from login form
-
+    const loginEmail = document.querySelector('.loginEmail').value
+    const loginPassword = document.querySelector('.loginPassword').value
 
     //get data from local storage
 
+    let exist = JSON.parse(localStorage.getItem("formData")).find((data)=> data.email == loginEmail && data.password == loginPassword)
+
 
     //check if data in local storage is same as value inputted
+    if(exist){
+        console.log('exist')
+        alert("You have logged in successfully")
+        window.location.href = "loopstudio.html"
+    }
+    else{
+        console.log('does not exist')
+        alert('Username or Password is wrong')
+    }
 
+    document.querySelector('.myLogin').reset()
 
-
+    //FOCUS TYPING INPUT ON EMAIL AFTER FORM HAS BEEN SUBMITTED
+    document.querySelector('.loginEmail').focus()
     //redirect to mainpage
 
 
     //if not, alert sorry wrong user details, reset form
+})
+
+window.onload(()=>{
+    document.querySelector(".mySignup").reset();
+    document.querySelector('.signupEmail').focus()
+    document.querySelector('.myLogin').reset()
+    document.querySelector('.loginEmail').focus()
 })
 
 
