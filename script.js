@@ -52,6 +52,7 @@ signUpButton.addEventListener('click', (e) => {
             // send to localstorage
     localStorage.setItem('formData', JSON.stringify(formData)); 
 
+    alert("sign up successful")
     //clear form
     document.querySelector(".mySignup").reset();
     document.querySelector('.signupEmail').focus()
@@ -86,7 +87,6 @@ loginButton.addEventListener('click', (e) => {
     //check if data in local storage is same as value inputted
     if(exist){
         console.log('exist')
-        alert("You have logged in successfully")
         window.location.href = "loopstudio.html"
     }
     else{
@@ -104,11 +104,11 @@ loginButton.addEventListener('click', (e) => {
     //if not, alert sorry wrong user details, reset form
 })
 
+
 window.onload(()=>{
     document.querySelector(".mySignup").reset();
     document.querySelector('.signupEmail').focus()
     document.querySelector('.myLogin').reset()
     document.querySelector('.loginEmail').focus()
 })
-
 
