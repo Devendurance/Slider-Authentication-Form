@@ -71,6 +71,8 @@ signUpButton.addEventListener('click', (e) => {
 
 
 loginButton.addEventListener('click', (e) => {
+
+    e.preventDefault()
     
     //get values from login form
     const loginEmail = document.querySelector('.loginEmail').value
