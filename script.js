@@ -42,21 +42,28 @@ signUpButton.addEventListener('click', (e) => {
     let exist = formData.length && 
     JSON.parse(localStorage.getItem('formData')).find((data)=> data.email == signUpEmail && data.password == signUpPassword)
 
-
     if(!exist){
-        formData.push({
-            email: signUpEmail,
-            username: signUpUsername,
-            password: signUpPassword
-        })
-            // send to localstorage
-    localStorage.setItem('formData', JSON.stringify(formData)); 
-
-    alert("sign up successful")
-    //clear form
-    document.querySelector(".mySignup").reset();
-    document.querySelector('.signupEmail').focus()
+        if(signUpEmail == "" || !signUpEmail.includes("@") || signUpUsername == "" || signUpPassword == ""){
+            alert("You have to fill in your details first")
+            document.querySelector(".mySignup").reset();
+            document.querySelector('.signupEmail').focus()
+        }
+        else{
+            formData.push({
+                email: signUpEmail,
+                username: signUpUsername,
+                password: signUpPassword
+            })
+                // send to localstorage
+        localStorage.setItem('formData', JSON.stringify(formData)); 
+        
+        alert("sign up successful")
+        //clear form
+        document.querySelector(".mySignup").reset();
+        document.querySelector('.signupEmail').focus()
+        }
     }
+
 
     else{
         alert("Sorry user already exists")
@@ -111,4 +118,3 @@ window.onload(()=>{
     document.querySelector('.myLogin').reset()
     document.querySelector('.loginEmail').focus()
 })
-
