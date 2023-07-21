@@ -657,12 +657,38 @@ footer {
         background-color: inherit;
         width: 350%;
     }
-    
+
     #footart {
         height: 2rem;
         background-color: inherit;
         width: 700%;
         margin-left: -200px;
+    }
+
+    
+    #gridbox .size .back {
+        transform: none;
+        top: 0px;
+    }
+
+    #gridbox .size:hover div.front {
+        animation: none;
+    }
+
+    #gridbox .size:hover div.back {
+        animation:none;
+        opacity: 0.5;
+        color: black;
+    }
+
+    #gridbox .size:active div.front {
+        animation: none;
+    }
+
+    #gridbox .size:active div.back {
+        animation:none;
+        opacity: 0.5;
+        color: black;
     }
 
 }
